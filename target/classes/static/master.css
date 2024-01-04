@@ -1,0 +1,134 @@
+/* Variables */
+:root{
+    --beige: maroon;
+    --lGray: #A3A3A3;
+    --dGray: #C9C9C9;
+    --black: #36292c;
+}
+/* Variables - END*/
+
+/* Body */
+body{
+    background-color: var(--dGray);
+    color: var(--black);
+    font-family: Arial, Helvetica, sans-serif 12px;   
+}
+/* Body - END*/
+
+/* Header 1 */
+h1{
+    color: black;
+    font-weight: bolder;
+    margin-left: 20%; 
+    margin-right: 20%;
+
+    margin-bottom: 20px; 
+    margin-top: 10px; 
+}
+/* Header 1 - END*/
+
+/* Header 2 */
+h2{
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    display: inline-block;
+    text-align: left;
+    width: 50px;
+    padding-top: 10px;
+}
+
+h3{
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    display: inline-block;
+    text-align: left;
+    width: 100px;
+    padding-top: 10px;
+}
+/* Header 2 - END*/
+
+/* mem input class */
+.mem-input{
+    width: 75%;
+    height: 40px;
+    border-radius: 10px;
+    border: var(--lGray) solid 2px;
+    float: right;
+}
+/* mem input class - END */
+
+/* input forms container class */
+.input-forms-cont{
+    padding-left: 20%;
+    padding-right: 20%;
+    margin-left: 30px;
+}
+/* input forms class container- END*/
+
+.input-form{
+    padding-bottom: 15px;
+    padding-top: 5px;
+    width: 90%;
+}
+
+/* Navbar */
+.navbar{
+    background-color: var(--beige); 
+    border:2px solid var(--black);
+}
+/* Navbar - END */
+
+/* Footer */
+.footer-section
+{
+    background-color: var(--beige);
+    border:2px solid var(--black);
+}
+/* Footer  - END*/
+
+/* Table */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+/* tr */
+tr{
+    background-color: var(--lGray);
+    color: var(--black);
+    border-radius: 20px;
+}
+tr:hover{
+    background-color: maroon;
+    color: white;
+}
+/* tr - END*/
+
+/* td */
+td{
+    border: 1px solid black;
+    max-width: 400px;
+}
+
+td:first-child,
+th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+td:last-child,
+th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+/* td - END*/
+
+/* Table -end*/
+
+/* Button */
+.btn{
+    background-color: maroon;
+    color: white;
+}
+/* Button - END*/

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="layout/defaultTemplate.html">
+<head>
+	<style>
+		/* Table style */
+		table, td{
+			padding:2px;
+			font-size: larger;
+		}
+		th{
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding:2px;
+			font-weight: bolder;
+			padding-left: 3px;
+			min-width: 150px;
+			text-align: center;
+		}
+		/* Table style - End*/
+		.search{
+			padding-left: 25%;
+			padding-right: 25%;
+		}
+		.editbtn{
+			min-width: 0;
+		}
+		img{
+			max-width: 100px;
+			max-height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- Title -->
+		<h1 th:text="${title}"></h1>
+
+		<!-- Searchbar -->
+		<form action="#" th:action="@{{name}}" method="get">
+			<div class="input-group mb-3 search">
+				<input type="text" name="name" class="form-control" placeholder="Search for memorabilia" id="search-input" style="margin-right: 10px; border-radius: 10px;">
+				<div class="input-group-append">
+					<button class="btn btn-outline-secondary" type="submit">Search</button>
+					<a href="http://localhost:8080/mem/">
+						<div id = "clear-button" class="btn btn-outline-secondary">Clear</div>
+					</a>
+				</div>
+			</div>
+		</form>
+
+		<!-- Table -->
+		<table style="border-collapse: separate;">
+			<!-- Table headers -->
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Image</th>
+					<th>Product Name</th>
+					<th>Price</th>
+					<th>Des.</th>
+					<th class="editbtn">Edit</th>
+					<th class="editbtn">Delete</th>
+				</tr>
+			</thead>
+			<!-- Table items -->
+
+			<!-- Form does not work -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+			<!-- <form action="#" th:action="@{{edit}}" th:object="${memModel}" method="get"> -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+			<!-- Row, each row is a mem -->
+			<tbody>
+				<tr class="table-row" th:each="mem : ${mems}">
+					<td th:text="${mem.id}" style="text-align: center;" name="id"></td>
+					<td  style="text-align: center;" name="img">
+						<!-- <img src="/topic3-2/src/main/resources/static/img/darth.jpg" name="img"> -->
+						<img th:src="${mem.img}" name=""> 
+					</td>
+					<td th:text="${mem.productName}" name="productName"></td>
+					<td class="price" th:text="${mem.price}" name="price"></td>
+					<td th:text="${mem.description}" name="description"></td>
+					<td>
+						<form action="#" th:action="@{editMem}" th:object="${mem}" method="post">
+							<input name="id" type="hidden" th:value="${mem.id}">
+							<input name="img" type="hidden" th:value="${mem.img}">
+							<input name="productName" type="hidden" th:value="${mem.productName}">
+							<input name="price" type="hidden" th:value="${mem.price}">
+							<input name="description" type="hidden" th:value="${mem.description}">
+							<button class="btn btn-outline-secondary" type="submit">Edit</button>
+						</form>
+					</td>
+					<td>
+						<form action="#" th:action="@{delMem}" th:object="${mem}" method="post">
+							<input name="id" type="hidden" th:value="${mem.id}">
+							<button class="btn btn-outline-secondary" type="submit" >Delete</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+			<!-- </form> -->
+			<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+		</table>
+	<script>
+		document.getElementById("clear-button").addEventListener("click", myFunction);
+		
+		function myFunction() {
+			console.log("hello");
+			var getValue= document.getElementById("search-input");
+        	if (getValue.value !="") {
+            	getValue.value = "";
+        	}
+		}
+	</script>
+	</div>
+</body>
+
+
+</html>

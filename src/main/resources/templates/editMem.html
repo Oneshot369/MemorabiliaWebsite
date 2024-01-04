@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="layout/defaultTemplate.html">
+<head>
+	<style>
+		.btnform-b{
+			padding-left:40%;
+			float: left;
+		}
+		.btnform-s{
+			padding-right:40%;
+			float: right;
+		
+		}
+		.btn-div{
+			padding-bottom: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- Title -->
+		<h1>Add a Memorabilia item</h1>
+		<form action="#" th:action="@{/mem/doUpdate}" th:object="${memModel}" method="post">
+			<div class="input-forms-cont">
+				<div class="input-form">
+					<h2>ID:</h2><input name="id" th:value="${memModel.id}" th:field="${memModel.id}" class="mem-input" type="text" placeholder=" Enter ID" required >
+				</div>
+				<div class="input-form">
+					<h2>Name:</h2><input name="productName" th:value="${memModel.productName}" th:field="${memModel.productName}" class="mem-input" type="text" placeholder=" Enter Name" required>
+				</div>
+				<div class="input-form">
+					<h2>Price:</h2><input name="price" th:value="${memModel.price}" th:field="${memModel.price}" class="mem-input" type="text" placeholder=" Enter Price" required>
+				</div>
+				<div class="input-form">
+					<h2>Desc:</h2><input name="description" th:value="${memModel.description}" th:field="${memModel.description}" class="mem-input" type="text" placeholder=" Enter Description" required>
+				</div>
+				<div class="input-form">
+					<h2>Img:</h2><input name="img" th:value="${memModel.img}" th:field="${memModel.img}" class="mem-input" type="text" placeholder=" Enter Name" required>
+				</div>
+				<div class="btnform-s">
+					<button class="btn btn-outline-secondary">Submit</button>
+				</div>	
+				<!-- This is a substitute for when we actually add it to our database -->
+		</form>
+				<!-- substitute-->
+		<div class="btn-div">
+			<form action="#" th:action="@{/mem/}" class="btnform-b" method="get">
+				<button class="btn btn-outline-secondary" >Back</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

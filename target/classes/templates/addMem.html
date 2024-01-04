@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="layout/defaultTemplate.html">
+<head>
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- Title -->
+		<h1>Add a Memorabilia item</h1>
+		<form action="#" th:action="@{/addMem/add}" th:object="${memModel}" method="post">
+			<div class="input-forms-cont">
+				<div class="input-form">
+					<h2>Name:</h2><input name="productName" th:field="${memModel.productName}" class="mem-input" type="text" placeholder=" Enter Name" required>
+				</div>
+				<div class="input-form">
+					<h2>Price:</h2><input name="price" th:field="${memModel.price}" class="mem-input" type="text" placeholder=" Enter Price" required>
+				</div>
+				<div class="input-form">
+					<h2>Desc:</h2><input name="description" th:field="${memModel.description}" class="mem-input" type="text" placeholder=" Enter Description" required>
+				</div>
+				<div class="input-form">
+					<h2>Img:</h2><input name="img" th:field="${memModel.img}" class="mem-input" type="text" placeholder=" Enter ID" required>
+				</div>
+				<!-- This is a substitute for when we actually add it to our database -->
+
+				<p style="color:black;"th:text="${memModel2}"></p>
+				<button class="btn btn-outline-secondary" onclick="document.getElementById('addedText').style.display = '' " style="margin-bottom: 20px;">Submit</button>
+
+				<!-- substitute-->
+			</div>
+		</form>
+	</div>
+</body>
+</html>

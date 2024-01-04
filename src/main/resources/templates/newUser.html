@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="layout/defaultTemplate.html">
+
+<head>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <!-- Title -->
+        <h1>New User</h1>
+        <form action="#" th:action="@{add}" th:object="${newUserModel}" method="post">
+            <div class="input-forms-cont">
+                <div class="input-form">
+                    <h3>First Name:</h3><input th:field="${newUserModel.Name}" class="mem-input" type="text" placeholder=" Enter First Name" required>
+                </div>
+                <div class="input-form">
+                    <h3>Last Name:</h3><input th:field="${newUserModel.LName}" class="mem-input" type="text" placeholder=" Enter Last Name" required>
+                </div>
+                <div class="input-form">
+                    <h3>Email:</h3><input th:field="${newUserModel.Email}" class="mem-input" type="text" placeholder=" Enter Email" required>
+                </div>
+                <div class="input-form">
+                    <h3>Username:</h3><input th:field="${newUserModel.Username}" class="mem-input" type="text" placeholder=" Enter Username" required>
+                </div>
+                <div class="input-form">
+                    <h3>Password:</h3><input th:field="${newUserModel.Password}" class="mem-input" type="text" placeholder=" Enter Password" required>
+                </div>
+
+                <!-- This is a substitute for when we actually add it to our database -->
+
+                <p style="color:black;" th:text="${newUser2}"></p>
+                <button class="btn btn-outline-secondary" onclick="document.getElementById('addedText').style.display = '' " style="margin-bottom: 20px;">Submit</button>
+
+                    <!-- substitute-->
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

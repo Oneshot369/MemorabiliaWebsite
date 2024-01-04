@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="layout/defaultTemplate.html">
+	<head>
+		<style>
+			input[type=text], input[type=password] {
+				width: 100%;
+				padding: 12px 20px; margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc; 
+				box-sizing: border-box; 
+				border-radius: 4px;
+			}
+			button {
+				background-color: #04AA6D;
+				color: white;
+				padding: 14px 20px;
+				margin: 8px 0;
+				border: none;
+				cursor: pointer; 
+				width: 100%; 
+				border-radius: 3px;
+			}
+			button:hover {
+				opacity: 0.8;
+			}
+			.cancelbtn {
+				width: auto; 
+				padding: 10px 18px;
+				background-color: #f44336;
+			}
+			
+			.imgcontainer {
+				text-align: center;
+				margin: 24px 0 12px 0;
+			}
+			
+			
+			img.avatar {
+				width: 40%;
+				max-width:300px;
+				border-radius: 50%;
+			}
+			.container {
+				padding: 16px;
+			}
+			span.psw {
+			float: right;
+			padding-top: 16px;
+			}
+			.fieldError {
+			color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div layout:fragment="content"> 
+			<form action="#" th:action="@{doLogin}" th:object="${loginModel}" method="post">
+				<div class ="imgcontainer">
+					<img th:src="@{/img/loginAvatar.png}" alt="Avatar" class="avatar"/>
+				</div>
+				
+				<div class="container">
+					<lable for="uname" class="lable"><b>Username</b></lable>
+					<input type="text" th:field="${loginModel.username}" placeholder = "Enter username" name="uname" required>
+					<div class="fieldError">
+						<p th:if="${#fields.hasErrors('username')}" th:errors="${loginModel.username}">User Name Error</p>
+					</div>
+					
+					<lable for="psw" class="lable"><b>Password</b></lable>
+					<input type="password" th:field="${loginModel.password}" name ="psw" required>
+					<div class="fieldError">
+						<p th:if="${#fields.hasErrors('password')}" th:errors="${loginModel.password}">Password Error</p>
+					</div>
+					
+					<p th:label="error"></p>
+					
+					<button type="submit" class="btn" style="width: 150px;">Login</button>
+					<a href="http://localhost:8080/newUser/" class="btn" style="width: 150px;">New User</a>
+	
+					<div class="container" style="background-color: #ddd">
+					</div>
+					
+					<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
+					<div th:each="err : ${#fields.errors('*')}">
+						<span th:text="${err}" class="fieldError"></span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html> 
