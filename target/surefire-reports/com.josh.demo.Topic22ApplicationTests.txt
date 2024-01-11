@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.josh.demo.Topic22ApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.178 s - in com.josh.demo.Topic22ApplicationTests
